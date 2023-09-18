@@ -13,7 +13,6 @@ def find_correct_path(instructions, target)
         if res
           result = "Replace instruction #{index + 1} with #{instruction}"
           eureka = true
-          break
         end
       end    
       return result
