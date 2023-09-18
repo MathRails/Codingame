@@ -64,28 +64,20 @@ def find_correct_path(instructions, target)
     return true if test_position ==target
   end
   
-  def new_direction(current_direction, action)
-    if action == 'TURN LEFT'
-      case current_direction
-      when 'R'
-        return 'U'
-      when 'U'
-        return 'L'
-      when 'L'
-        return 'D'
-      when 'D'
-        return 'R'
-      end
-    else
-      case current_direction
-      when 'R'
-        return 'D'
-      when 'D'
-        return 'L'
-      when 'L'
-        return 'U'
-      when 'U'
-        return 'R'
-      end
-    end
+def new_direction(current_direction, action)
+    directions = {
+      'TURN LEFT' => {
+        'R' => 'U',
+        'U' => 'L',
+        'L' => 'D',
+        'D' => 'R'
+      },
+      'TURN RIGHT' => {
+        'R' => 'D',
+        'D' => 'L',
+        'L' => 'U',
+        'U' => 'R'
+      }
+    }
+    return directions[action][current_direction]
   end
